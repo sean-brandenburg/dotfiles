@@ -1,10 +1,10 @@
-. "$HOME/.cargo/env"
-
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$HOME/dotnet
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/usr/local/scripts:$PATH"
 
 export DOTNET_ROOT=$HOME/dotnet
 
