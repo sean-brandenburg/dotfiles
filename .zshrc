@@ -49,9 +49,9 @@ mdb() {
     rm -r ~/db/test
     rm -r ~/db/local
 
-    mlaunch --replicaset --port 26000 --dir ~/db/test/ --priority
-    mlaunch --replicaset --port 27017 --dir ~/db/data/ --priority
-    mlaunch --replicaset --port 27000 --dir ~/db/local/ --priority
+    mlaunch --port 26000 --dir ~/db/test/ --replicaset --priority
+    mlaunch --port 27000 --dir ~/db/local/ --replicaset --priority
+    mlaunch --port 27017 --dir ~/db/data/ --replicaset --priority
 
     return 0
 }
@@ -67,6 +67,22 @@ mdb() {
 
      return 0
  }
+
+mdbSharded() {
+    mlaunch kill --dir ~/db/test
+    mlaunch kill --dir ~/db/data
+    mlaunch kill --dir ~/db/local
+
+    rm -r ~/db/data
+    rm -r ~/db/test
+    rm -r ~/db/local
+
+    mlaunch --port 26000 --dir ~/db/test/ --replicaset --priority
+    mlaunch --port 27000 --dir ~/db/local/ --replicaset --priority
+    mlaunch --port 27017 --dir ~/db/data/ --replicaset --sharded 3
+
+    return 0
+}
 
 ## Source Other Files
 source ~/.env
