@@ -7,6 +7,12 @@ brew install stow
 
 brew install neovim
 brew install ripgrep
+
+brew install —cask zed
+
+# zoxide dep
+brew install zoxide
+brew install fzf
 ```
 
 ## Getting Setup
