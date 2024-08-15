@@ -4,6 +4,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.color_scheme = "Tokyo Night"
+config.font_size = 14
 
 -- Slightly transparent and blurred background
 config.window_background_opacity = 0.85
@@ -15,8 +16,8 @@ config.macos_window_background_blur = 30
 -- you want to keep the window controls visible and integrate
 -- them into the tab bar.
 config.window_decorations = "RESIZE"
--- Sets the font for the window frame (tab bar)
 
+-- Sets the font for the window frame (tab bar)
 config.window_frame = {
 	-- Berkeley Mono for me again, though an idea could be to try a
 	-- serif font here instead of monospace for a nicer look?
