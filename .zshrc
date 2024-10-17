@@ -40,55 +40,12 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Raise file descriptor limit (mongo uses a lot of them)
 ulimit -n 64000
 
-mdb() {
-    mlaunch kill --dir ~/db/test
-    mlaunch kill --dir ~/db/data
-    mlaunch kill --dir ~/db/local
-
-    rm -r ~/db/data
-    rm -r ~/db/test
-    rm -r ~/db/local
-
-    mlaunch --port 26000 --dir ~/db/test/ --replicaset --priority
-    mlaunch --port 27000 --dir ~/db/local/ --replicaset --priority
-    mlaunch --port 27017 --dir ~/db/data/ --replicaset --priority
-
-    return 0
-}
- 
- mdbKill() {
-     mlaunch kill --dir ~/db/test
-     mlaunch kill --dir ~/db/data
-     mlaunch kill --dir ~/db/local
-
-     rm -r ~/db/data
-     rm -r ~/db/test
-     rm -r ~/db/local
-
-     return 0
- }
-
-mdbSharded() {
-    mlaunch kill --dir ~/db/test
-    mlaunch kill --dir ~/db/data
-    mlaunch kill --dir ~/db/local
-
-    rm -r ~/db/data
-    rm -r ~/db/test
-    rm -r ~/db/local
-
-    mlaunch --port 26000 --dir ~/db/test/ --replicaset --priority
-    mlaunch --port 27000 --dir ~/db/local/ --replicaset --priority
-    mlaunch --port 27017 --dir ~/db/data/ --replicaset --sharded 3
-
-    return 0
-}
-
 ## Source Other Files
 source ~/.env
 source ~/.zshlocal
 
 # Aliases 
+alias cd="z"
 alias npm="pnpm"
 alias ls="ls -al --color=auto"
 alias vim="nvim"
