@@ -51,6 +51,7 @@ alias ls="ls -al --color=auto"
 alias vim="nvim"
 alias finder="open"
 alias gr='cd $(git rev-parse --show-toplevel)'
+alias gu='git reset HEAD~1 --soft'
 alias femu="firebase emulators:start"
 
 # Zoxide post script
