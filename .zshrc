@@ -57,5 +57,18 @@ alias femu="firebase emulators:start"
 # Zoxide post script
 eval "$(zoxide init zsh)"
 
+mdb() {
+    mlaunch kill --dir ~/db/data
+    rm -r ~/db/data
+    mlaunch --replicaset --port 27017 --dir ~/db/data/ --priority
+    return 0
+}
+ 
+ mdbKill() {
+     mlaunch kill --dir ~/db/data
+     rm -r ~/db/data
+     return 0
+ }
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

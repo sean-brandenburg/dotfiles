@@ -436,11 +436,11 @@ require('lazy').setup({
         gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
-        tsserver = {},
+        tsserver = {}, -- Typescript
         html = {},
         cssls = {},
         svelte = {},
-        --
+        jdtls = {}, -- Java
 
         lua_ls = {
           -- cmd = {...},
@@ -481,6 +481,7 @@ require('lazy').setup({
           'svelte',
           'html',
           'cssls',
+          'jdtls',
         },
         handlers = {
           function(server_name)
@@ -705,7 +706,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'svelte', 'vimdoc', 'vim', 'html', 'css' },
+      ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'java', 'tsx', 'javascript', 'typescript', 'svelte', 'vimdoc', 'vim', 'html', 'css' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
