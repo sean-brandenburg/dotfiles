@@ -22,6 +22,12 @@ keymap.set('n', '<leader>sh', '<C-w>s', { desc = '[S]plit window [H]orizontally'
 keymap.set('n', '<leader>se', '<C-w>=', { desc = 'Make [S]plits [E]qual size' })
 keymap.set('n', '<leader>sx', '<cmd>close<CR>', { desc = 'close current split' })
 
+-- Change size of current window horizontally (not working for some reason)
+-- keymap.set('n', "<M-,>", "<c-w>5<", { desc = "decrease the width of the current split [<]"})
+-- keymap.set('n', "<M-.>", "<c-w>5>", { desc = "increase the width of the current split [>]"})
+-- keymap.set('n', "<M-=>", "<C-W>->", { desc = "decrease the height of the current spl+t [-]"})
+-- keymap.set('n', "<M-=>", "<C-W>+>", { desc = "increase the height of the current split [+]"})
+
 -- tab mangement
 keymap.set('n', '<leader>to', '<cmd>tabnew %<CR>', { desc = '[T]ab [O]pen' })
 keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = '[T]ab e[X]it' })
