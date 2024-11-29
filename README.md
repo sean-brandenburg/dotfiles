@@ -9,8 +9,7 @@ brew install stow
 brew install neovim
 brew install ripgrep
 brew install jesseduffield/lazygit/lazygit
-
-brew install —cask zed
+brew install --cask nikitabobko/tap/aerospace
 
 # zoxide dep
 brew install zoxide
