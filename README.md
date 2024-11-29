@@ -1,12 +1,14 @@
 # My Dotfiles
 
 ## Installing Dependencies
+
 ```
 brew install git
 brew install stow
 
 brew install neovim
 brew install ripgrep
+brew install jesseduffield/lazygit/lazygit
 
 brew install —cask zed
 
@@ -16,6 +18,7 @@ brew install fzf
 ```
 
 ## Getting Setup
+
 First, check out the dotfiles repo in your $HOME directory using git
 
 ```
