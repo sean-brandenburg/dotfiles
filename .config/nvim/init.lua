@@ -21,13 +21,8 @@ require('lazy').setup {
   },
 
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  'airblade/vim-rooter', -- set cwd to project root
 
-  -- "gc" to comment selected visual region
-  -- "gcc" toggle comment of current line
-  -- "gb" to toggle block comment of visual region
-  -- "gbc" to toggle block comment of current line
-  { 'numToStr/Comment.nvim', opts = {} },
+  -- 'airblade/vim-rooter', -- set cwd to project root (this was not working properly for me)
 
   {
     'lewis6991/gitsigns.nvim',
@@ -52,19 +47,8 @@ require('lazy').setup {
     },
   },
 
-  -- {
-  --   -- Auto close xml tags
-  --   'windwp/nvim-ts-autotag',
-  --   dependencies = {
-  --     'nvim-treesitter/nvim-treesitter',
-  --   },
-  --   opts = {
-  --     enable_close = true,
-  --     enable_rename = true,
-  --     enable_close_on_slash = true,
-  --   },
-  -- },
   { import = 'sean.plugins' },
+  { import = 'sean.plugins.lsp' },
 }
 
 -- vim: ts=2 sts=2 sw=2 et
