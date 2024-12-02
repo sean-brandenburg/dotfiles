@@ -26,8 +26,8 @@ return {
         local opts = { buffer = ev.buf, silent = true }
 
         -- set keybinds
-        opts.desc = 'Show LSP references'
-        keymap.set('n', 'gR', '<cmd>Telescope lsp_references<CR>', opts) -- show definition, references
+        opts.desc = 'Show LSP references' -- TODO: Figure out how to get this to show a preview window
+        keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts) -- show definition, references
 
         opts.desc = 'Go to declaration'
         keymap.set('n', 'gD', vim.lsp.buf.declaration, opts) -- go to declaration
@@ -112,6 +112,22 @@ return {
               },
               completion = {
                 callSnippet = 'Replace',
+              },
+            },
+          },
+        }
+      end,
+      ['gopls'] = function()
+        -- configure svelte server
+        lspconfig['gopls'].setup {
+          capabilities = capabilities,
+          filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+          root_dir = require('lspconfig.util').root_pattern('go.work', 'go.mod', '.git'),
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              analyses = {
+                unusedparams = true,
               },
             },
           },
