@@ -58,9 +58,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
     vim.keymap.set('n', '<leader><leader>', function()
       builtin.live_grep {
-        prompt_title = 'Live Grep in Open Files',
+        prompt_title = 'Grep In Project',
       }
-    end, { desc = '[ ] Search in Open Files' })
+    end, { desc = '[ ] Live Grep In Project' })
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>fn', function()

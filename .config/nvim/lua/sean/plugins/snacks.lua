@@ -12,12 +12,12 @@ return {
     statuscolumn = { enabled = true },
     words = { enabled = true },
     lazygit = { enabled = true },
+    git = { enabled = true },
   },
-  init = function()
+  config = function()
     local snacks = require 'snacks'
 
-    vim.keymap.set('n', '<leader>lg', function()
-      snacks.lazygit.open()
-    end, { desc = '[L]azy [G]it' })
+    vim.keymap.set('n', '<leader>lg', snacks.lazygit.open, { desc = '[L]azy [G]it' })
+    vim.keymap.set('n', '<leader>gb', snacks.git.blame_line, { desc = '[G]it [B]lame' })
   end,
 }
