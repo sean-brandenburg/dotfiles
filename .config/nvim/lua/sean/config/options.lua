@@ -65,3 +65,6 @@ vim.opt.scrolloff = 200
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.opt.termguicolors = true
+
+-- Hide the status bar
+vim.opt.laststatus = 0

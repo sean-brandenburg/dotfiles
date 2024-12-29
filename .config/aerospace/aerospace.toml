@@ -161,19 +161,29 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 # Capture certain windows and send them to a specific workspace
+
+# Browser
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace B"
 
+# Opsidian
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace O"
 
+# Spotify / Slack
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = "move-node-to-workspace S"
 
+# Terminals
 [[on-window-detected]]
 if.app-id = 'dev.warp.Warp-Stable'
 run = "move-node-to-workspace T"
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = "move-node-to-workspace T"
+
 

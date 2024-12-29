@@ -1,0 +1,41 @@
+# Fonts
+font-family = "Fira Code Nerd Font"
+font-size = 12
+adjust-underline-position = 4
+
+# Mouse
+mouse-hide-while-typing = true
+# mouse-scroll-multiplier = 1
+
+# Theme
+theme = tokyonight
+cursor-invert-fg-bg = true
+background-opacity = 0.85
+background-blur-radius = 20
+window-theme = ghostty
+
+# keybindings
+keybind = super+shift+h=goto_split:left
+keybind = super+shift+j=goto_split:bottom
+keybind = super+shift+k=goto_split:top
+keybind = super+shift+l=goto_split:right
+keybind = super+shift+r=reload_config
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+keybind = super+shift+enter=new_split:auto
+keybind = super+w=close_surface
+
+# Window
+gtk-single-instance = true
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
+window-padding-x = 6,6
+window-padding-y = 6,6
+window-padding-balance = true
+
+# Other
+copy-on-select = clipboard
+shell-integration-features = cursor,sudo
+macos-titlebar-style = hidden
+
+
