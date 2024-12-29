@@ -32,6 +32,7 @@ return {
         'svelte',
         'lua_ls',
         'pyright',
+        'nil_ls',
       },
     }
 
@@ -42,6 +43,7 @@ return {
         'isort',
         'black',
         'goimports-reviser',
+        'nixpkgs-fmt',
 
         -- Linters
         'golangci-lint',
