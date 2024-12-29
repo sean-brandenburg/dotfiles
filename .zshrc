@@ -69,6 +69,17 @@ else
     export EDITOR='nvim'
 fi
 
+ # Yazi configuration to cd to the directory you were last in when closing yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+
 # Raise file descriptor limit (mongo uses a lot of them)
 ulimit -n 64000
 
