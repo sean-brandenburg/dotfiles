@@ -31,11 +31,6 @@
           pkgs.oh-my-posh
         ];
 
-      fonts.packages = 
-        [
-          (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-        ];
-
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
