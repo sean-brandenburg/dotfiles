@@ -10,6 +10,7 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs }:
   let
     configuration = { pkgs, config, ... }: {
+      nixpkgs.config.allowUnfree = true;
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
@@ -29,6 +30,7 @@
           pkgs.zsh
           pkgs.zsh
           pkgs.oh-my-posh
+          pkgs.obsidian
         ];
 
       # Necessary for using flakes on this system.
