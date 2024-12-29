@@ -9,11 +9,31 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs }:
   let
-    configuration = { pkgs, ... }: {
+    configuration = { pkgs, config, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [ pkgs.neovim
+        [ 
+          pkgs.neovim
+          pkgs.tmux
+          pkgs.go
+          pkgs.lua
+          pkgs.pnpm
+          pkgs.ripgrep
+          pkgs.stow
+          pkgs.tree
+          pkgs.wget
+          pkgs.yazi
+          pkgs.zoxide
+          pkgs.lazygit
+          pkgs.zsh
+          pkgs.zsh
+          pkgs.oh-my-posh
+        ];
+
+      fonts.packages = 
+        [
+          (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         ];
 
       # Necessary for using flakes on this system.
