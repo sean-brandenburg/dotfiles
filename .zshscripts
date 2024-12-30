@@ -1,0 +1,22 @@
+mdb() {
+	mlaunch kill --dir ~/db/data
+	rm -r ~/db/data
+	mlaunch --replicaset --port 27017 --dir ~/db/data/ --priority
+	return 0
+}
+
+mdbKill() {
+	mlaunch kill --dir ~/db/data
+	rm -r ~/db/data
+	return 0
+}
+
+ # Yazi alias to cd to the directory you were last in when closing yazi
+y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

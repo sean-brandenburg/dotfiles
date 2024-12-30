@@ -1,20 +1,55 @@
-export PATH=$HOME/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/go/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:$HOME/dotnet
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/usr/local/scripts:$PATH"
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-export DOTNET_ROOT=$HOME/dotnet
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
 
-# pnpm
-export PNPM_HOME="/Users/sean/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
 
-# opam configuration (ocaml package mananger)
-[[ ! -r /Users/sean/.opam/opam-init/init.zsh ]] || source /Users/sean/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+bindkey -v # vim mode
+KEYTIMEOUT=1 # 10ms window for vim multi-key sequences 
+
+bindkey '^r' history-search-backward
+bindkey '^f' autosuggest-accept
+
+# History
+HISTSIZE=10000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # case insensitive match
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # show options with ls colors
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
+# oh-my-posh prompt (Don't run in default mac terminal because it doesn't support ANSI characters)
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+    eval "$(oh-my-posh init zsh --config $HOME/dotfiles/.config/ohmyposh/tokyonight.json)"
+fi
