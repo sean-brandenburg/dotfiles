@@ -91,11 +91,10 @@ source ~/.zshlocal
 alias e="$EDITOR"
 alias npm="pnpm"
 alias ls="ls -al --color=auto"
-alias vim="nvim"
-alias finder="open"
+alias lg="lazygit"
 alias gr='cd $(git rev-parse --show-toplevel)'
 alias gu='git reset HEAD~1 --soft'
-alias femu="firebase emulators:start"
+alias finder="open"
 
 # Zoxide post script
 eval "$(zoxide init zsh)"

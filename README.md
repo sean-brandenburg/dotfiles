@@ -2,18 +2,21 @@
 
 ## Getting Setup
 
-First, check out this repo in your $HOME directory using git
-
 ```
-git clone git@github.com/sean-brandenburg/dotfiles.git
-```
+sh <(curl -L https://nixos.org/nix/install)
+nix-shell -p git --run 'git clone git@github.com/sean-brandenburg/dotfiles.git'
 
-## Installing Dependencies
-
-```
 cd dotfiles
-brew bundle --file=./Brewfile
 stow .
+nix run nix-darwin --extra-experimental-features "nix-command flakes"-- switch --flake ~/dotfiles/.config/nix-darwin#personal
 ```
 
-## [YouTube Setup Guide](https://www.youtube.com/watch?v=y6XCebnB9gs)
+## Rebuilding After Making Changes
+
+```
+darwin-rebuild switch --flake ~/dotfiles/.config/nix#personal
+```
+
+## Brew install depedencies (Deprecated)
+
+`brew bundle --file=./Brewfile`
