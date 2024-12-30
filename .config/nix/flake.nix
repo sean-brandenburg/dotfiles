@@ -48,15 +48,13 @@
           pkgs.zsh-completions
           pkgs.zsh-autosuggestions
           pkgs.zsh-fzf-tab
+          pkgs.codecrafters-cli
 
           # Languages
           pkgs.go
           pkgs.gotestsum
           pkgs.lua
           pkgs.python314
-
-          # CLI
-          pkgs.codecrafters-cli
 
           # GUI
           pkgs.obsidian
@@ -74,6 +72,8 @@
           "mtools"
         ];
         casks = [
+          "1password"
+          "beeper"
           "ghostty"
           "scroll-reverser"
         ];
@@ -100,11 +100,41 @@
         configurationRevision = self.rev or self.dirtyRev or null; # Set Git commit hash for darwin-version
         stateVersion = 5; # Check `darwin-rebuild changelog` before changing
 
+        keyboard = {
+          remapCapsLockToEscape = true;
+          enableKeyMapping = true;
+        };
+
         defaults = {
-          dock.autohide = true;
-          finder.AppleShowAllExtensions = true;
-          finder.FXPreferredViewStyle = "clmv";
           screencapture.location = "~/Pictures/screenshots";
+          NSGlobalDomain.AppleScrollerPagingBehavior = true; # scroll to mouse when clicking scrollbar
+
+          dock = {
+            autohide = true;
+            autohide-time-modifier = 0.5;
+            persistent-apps = [
+               "/Applications/Arc.app"
+               "/Applications/Beeper.app"
+               "/System/Applications/Messages.app"
+               "${pkgs.spotify}/Applications/Spotify.app"
+               "/Applications/Ghostty.app"
+               "${pkgs.obsidian}/Applications/Obsidian.app"
+               "/Applications/1Password.app"
+               "/System/Applications/System Settings.app"
+            ];
+            show-recents = false;
+          };
+          finder = {
+            AppleShowAllExtensions = true;
+            AppleShowAllFiles= true; # show hidden files
+            FXPreferredViewStyle = "clmv"; # column view in finder
+            ShowPathbar = true;
+          };
+          controlcenter = {
+            BatteryShowPercentage = true;
+            Bluetooth = true;
+          };
+          loginwindow.GuestEnabled = false;
         };
       };
 
