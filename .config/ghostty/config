@@ -20,6 +20,11 @@ keybind = super+shift+j=goto_split:bottom
 keybind = super+shift+k=goto_split:top
 keybind = super+shift+l=goto_split:right
 
+keybind = ctrl+h=unbind
+keybind = ctrl+j=unbind
+keybind = ctrl+k=unbind
+keybind = ctrl+l=unbind
+
 keybind = super+shift+left=goto_split:left
 keybind = super+shift+down=goto_split:bottom
 keybind = super+shift+up=goto_split:top
@@ -43,5 +48,8 @@ window-padding-balance = true
 copy-on-select = clipboard
 shell-integration-features = cursor,sudo
 macos-titlebar-style = hidden
+
+scrollback-limit = 100_000
+
 
 
