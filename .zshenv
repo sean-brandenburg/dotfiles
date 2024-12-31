@@ -58,4 +58,4 @@ eval "$(zoxide init --cmd cd zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
     eval "$(oh-my-posh init zsh --config $HOME/dotfiles/.config/ohmyposh/tokyonight.json)"
 fi
--. "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
