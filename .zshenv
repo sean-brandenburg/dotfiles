@@ -9,13 +9,15 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
+ZVM_INIT_MODE=sourcing
+zinit light jeffreytse/zsh-vi-mode
+
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
 
 # Load completions
 autoload -Uz compinit && compinit

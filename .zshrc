@@ -28,9 +28,6 @@ alias gr='cd $(git rev-parse --show-toplevel)'
 alias gu='git reset HEAD~1 --soft'
 alias finder="open"
 
-# Zoxide post script
-eval "$(zoxide init zsh)"
-
 # pnpm
 export PNPM_HOME="/Users/sean/Library/pnpm"
 case ":$PATH:" in

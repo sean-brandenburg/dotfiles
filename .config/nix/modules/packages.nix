@@ -28,9 +28,6 @@
     pkgs.wl-clipboard
     pkgs.xsel
     pkgs.mongodb-ce
-    pkgs.zsh-syntax-highlighting
-    pkgs.zsh-completions
-    pkgs.zsh-autosuggestions
     pkgs.zsh-fzf-tab
     pkgs.codecrafters-cli
 
