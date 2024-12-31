@@ -20,6 +20,7 @@ ulimit -n 64000
 
 # Aliases 
 alias e="$EDITOR"
+alias vim="$EDITOR"
 alias npm="pnpm"
 alias ls="ls -al --color=auto"
 alias lg="lazygit"
