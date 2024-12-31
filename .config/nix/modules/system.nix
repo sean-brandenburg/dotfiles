@@ -12,6 +12,7 @@
 
     defaults = {
       screencapture.location = "~/Pictures/screenshots";
+      loginwindow.GuestEnabled = false;
 
       NSGlobalDomain = {
         AppleScrollerPagingBehavior = true; # scroll to mouse when clicking scrollbar
@@ -33,6 +34,7 @@
         ];
         show-recents = false;
       };
+
       finder = {
         _FXShowPosixPathInTitle = true;  # show full path in finder title
         FXEnableExtensionChangeWarning = false;  # disable warning when changing file extension
@@ -42,11 +44,12 @@
         ShowPathbar = true;
         ShowStatusBar = true;
       };
+
       controlcenter = {
         BatteryShowPercentage = false;
         Bluetooth = true;
       };
-      loginwindow.GuestEnabled = false;
+
     };
   };
 }

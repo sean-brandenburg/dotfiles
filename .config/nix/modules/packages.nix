@@ -18,7 +18,6 @@
     pkgs.zoxide
     pkgs.lazygit
     pkgs.zsh
-    pkgs.zsh-vi-mode
     pkgs.oh-my-posh
     pkgs.jq
     pkgs.poppler
