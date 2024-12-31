@@ -10,6 +10,7 @@
     brews = [
       "mas"
       "mtools"
+      "go@1.22"
     ];
 
     casks = [
