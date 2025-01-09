@@ -1,0 +1,60 @@
+let mapleader=" "
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+set exchange
+set highlightedyank
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+" Find the next occurence of the currently selected word
+map <leader>n <Plug>NextWholeOccurrence
+
+""" Common settings -------------------------
+set showmode
+set so=9999
+set incsearch
+set nu
+set relativenumber
+set ignorecase smartcase
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+
+""" My Mappings -----------------------------
+" Go to the head of the function that you're currently in
+map <leader>f ?^[^ \t#]<CR>
+
+map <leader>r <Action>(RenameElement)
+map <leader>R <Action>(Refactorings.QuickListPopupAction)
+
+" toggle git annotation
+map <leader>a <Action>(Annotate)
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>B <Action>(Debugger.RemoveAllBreakpoints)
+
+" Show preview window with implementation of current hovered method/struct
+map <leader>q <Action>(QuickImplementations)
+
+map gi <Action>(GotoImplementation)
+
+" Intellij back and forward work better than the ideavim ones
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
+
+" Itterate through lines with errors
+map <leader>u <Action>(GotoPreviousError)
+map <leader>d <Action>(GotoNextError)
+
+" easymotion
+map <leader>k <Plug>(easymotion-s)
+map <leader>j <Plug>(easymotion-f)
