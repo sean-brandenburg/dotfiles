@@ -23,7 +23,7 @@
         autohide = true;
         autohide-time-modifier = 0.5;
         persistent-apps = [
-           "/Applications/Arc.app"
+           "${pkgs.arc-browser}/Applications/Arc.app"
            "/Applications/Beeper.app"
            "/System/Applications/Messages.app"
            "${pkgs.spotify}/Applications/Spotify.app"
