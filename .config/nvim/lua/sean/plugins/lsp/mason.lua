@@ -32,7 +32,6 @@ return {
         'svelte',
         'lua_ls',
         'pyright',
-        'nil_ls',
       },
     }
 

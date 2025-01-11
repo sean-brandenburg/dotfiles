@@ -36,7 +36,7 @@
     pkgs.gotestsum
     pkgs.lua
     pkgs.python314
-    pkgs.cargo
+    pkgs.rustup
 
     # GUI
     pkgs.obsidian
