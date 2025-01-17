@@ -58,3 +58,5 @@ map <leader>d <Action>(GotoNextError)
 " easymotion
 map <leader>k <Plug>(easymotion-s)
 map <leader>j <Plug>(easymotion-f)
+
+map <leader><leader> (SearchEverywhere)

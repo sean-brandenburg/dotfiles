@@ -49,7 +49,8 @@ copy-on-select = clipboard
 shell-integration-features = cursor,sudo
 macos-titlebar-style = hidden
 
-scrollback-limit = 100_000
-
-
+# Search entire scrollback history in default text editor
+keybind = cmd+f=write_scrollback_file:open
+keybind = cmd+shift+f=write_selection_file:open
+scrollback-limit = 20000000
 
