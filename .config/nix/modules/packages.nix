@@ -45,5 +45,6 @@
     pkgs.raycast
     pkgs.appcleaner
     pkgs.vscode
+    pkgs.arc-browser
   ];
 }
