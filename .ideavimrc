@@ -59,4 +59,4 @@ map <leader>d <Action>(GotoNextError)
 map <leader>k <Plug>(easymotion-s)
 map <leader>j <Plug>(easymotion-f)
 
-map <leader><leader> (SearchEverywhere)
+map <leader><leader> <Action>(SearchEverywhere)
