@@ -59,9 +59,9 @@
     };
 
     activationScripts = {
-      preUserActivation.text = ''
-        sudo xcode-select --install
-      '';
+      # preUserActivation.text = ''
+      #   sudo xcode-select --install
+      # '';
 
       postUserActivation.text = ''
         # Set default browser to arc

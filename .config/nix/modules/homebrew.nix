@@ -21,6 +21,7 @@
       "beeper"
       "ghostty"
       "scroll-reverser"
+      "gpg-suite"
     ];
 
     # Mac App Store Apps
