@@ -58,15 +58,23 @@
 
     };
 
-    activationScripts.postUserActivation.text = ''
-      # Set default browser to arc
-      /opt/homebrew/bin/defaultbrowser browser
+    activationScripts = {
+      preUserActivation.text = ''
+        sudo xcode-select --install
+      '';
 
-      # Set default Rust version
-      rustup default stable
+      postUserActivation.text = ''
+        # Set default browser to arc
+        /opt/homebrew/bin/defaultbrowser browser
 
-      # Set not version
-      sudo /opt/homebrew/bin/n 22
-    '';
+        # Set default Rust version
+        rustup default stable
+
+        # Set not version
+        sudo /opt/homebrew/bin/n 22
+
+        stow ~/dotfiles/
+      '';
+    };
   };
 }
