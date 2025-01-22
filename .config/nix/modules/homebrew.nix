@@ -8,6 +8,9 @@
     ];
 
     brews = [
+      "gh"
+      "n"
+      "defaultbrowser"
       "mas"
       "mtools"
       "go@1.22"

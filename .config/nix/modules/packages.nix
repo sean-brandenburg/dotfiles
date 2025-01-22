@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   nixpkgs = {
-    hostPlatform = "x86_64-darwin";
+    hostPlatform = "aarch64-darwin";
     config.allowUnfree = true;
   };
 
@@ -30,6 +30,7 @@
     pkgs.mongodb-ce
     pkgs.zsh-fzf-tab
     pkgs.codecrafters-cli
+    pkgs.pnpm
 
     # Languages
     pkgs.go

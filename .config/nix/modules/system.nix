@@ -13,15 +13,22 @@
     defaults = {
       screencapture.location = "~/Pictures/screenshots";
       loginwindow.GuestEnabled = false;
+      trackpad.Clicking = true;
+      WindowManager.EnableStandardClickToShowDesktop = false;
 
       NSGlobalDomain = {
         AppleScrollerPagingBehavior = true; # scroll to mouse when clicking scrollbar
         AppleInterfaceStyle = "Dark";  # dark mode
+        InitialKeyRepeat = 10;
+        KeyRepeat = 1;
       };
 
       dock = {
         autohide = true;
         autohide-time-modifier = 0.5;
+        expose-group-apps = true;
+        show-recents = false;
+
         persistent-apps = [
            "${pkgs.arc-browser}/Applications/Arc.app"
            "/Applications/Beeper.app"
@@ -32,7 +39,6 @@
            "/Applications/1Password.app"
            "/System/Applications/System Settings.app"
         ];
-        show-recents = false;
       };
 
       finder = {
@@ -51,5 +57,16 @@
       };
 
     };
+
+    activationScripts.postUserActivation.text = ''
+      # Set default browser to arc
+      /opt/homebrew/bin/defaultbrowser browser
+
+      # Set default Rust version
+      rustup default stable
+
+      # Set not version
+      sudo /opt/homebrew/bin/n 22
+    '';
   };
 }

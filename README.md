@@ -3,6 +3,7 @@
 ## Getting Setup
 
 ```
+sudo xcode-select --install
 sh <(curl -L https://nixos.org/nix/install)
 nix-shell -p git --run 'git clone https://github.com/sean-brandenburg/dotfiles.git'
 cd dotfiles

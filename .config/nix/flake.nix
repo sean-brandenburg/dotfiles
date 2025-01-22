@@ -23,7 +23,7 @@
         {
           nix-homebrew = {
             enable = true;
-            enableRosetta = false; # Apple silicon only
+            enableRosetta = true;
             user = "sean";
             autoMigrate = true; # Automatically migrate existing Homebrew installations
           };
