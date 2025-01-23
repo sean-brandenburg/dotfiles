@@ -13,7 +13,6 @@
     defaults = {
       screencapture.location = "~/Pictures/screenshots";
       loginwindow.GuestEnabled = false;
-      trackpad.Clicking = true;
       WindowManager.EnableStandardClickToShowDesktop = false;
 
       NSGlobalDomain = {
@@ -28,6 +27,8 @@
         autohide-time-modifier = 0.5;
         expose-group-apps = true;
         show-recents = false;
+        wvous-br-corner = 1; # disable bottom right hot corner
+        tilesize = 48; # smaller dock size
 
         persistent-apps = [
            "${pkgs.arc-browser}/Applications/Arc.app"
@@ -42,6 +43,7 @@
       };
 
       finder = {
+        _FXSortFoldersFirst = true; # folders always appear before files
         _FXShowPosixPathInTitle = true;  # show full path in finder title
         FXEnableExtensionChangeWarning = false;  # disable warning when changing file extension
         AppleShowAllExtensions = true;
@@ -49,6 +51,12 @@
         FXPreferredViewStyle = "clmv"; # column view in finder
         ShowPathbar = true;
         ShowStatusBar = true;
+      };
+
+      trackpad = {
+        Clicking = true;
+        TrackpadRightClick = true;
+        FirstClickThreshold = 0;
       };
 
       controlcenter = {
@@ -59,9 +67,9 @@
     };
 
     activationScripts = {
-      # preUserActivation.text = ''
-      #   sudo xcode-select --install
-      # '';
+      preUserActivation.text = ''
+        sudo xcode-select --install
+      '';
 
       postUserActivation.text = ''
         # Set default browser to arc
@@ -72,8 +80,6 @@
 
         # Set not version
         sudo /opt/homebrew/bin/n 22
-
-        stow ~/dotfiles/
       '';
     };
   };

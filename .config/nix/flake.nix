@@ -25,7 +25,6 @@
             enable = true;
             enableRosetta = true;
             user = "sean";
-            autoMigrate = true; # Automatically migrate existing Homebrew installations
           };
         }
       ];
