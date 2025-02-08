@@ -16,10 +16,9 @@
       WindowManager.EnableStandardClickToShowDesktop = false;
 
       NSGlobalDomain = {
+        ApplePressAndHoldEnabled = false;
         AppleScrollerPagingBehavior = true; # scroll to mouse when clicking scrollbar
-        AppleInterfaceStyle = "Dark";  # dark mode
-        InitialKeyRepeat = 10;
-        KeyRepeat = 1;
+        AppleInterfaceStyle = "Dark";
       };
 
       dock = {
@@ -37,6 +36,7 @@
            "${pkgs.spotify}/Applications/Spotify.app"
            "/Applications/Ghostty.app"
            "${pkgs.obsidian}/Applications/Obsidian.app"
+           "/Applications/Todoist.app"
            "/Applications/1Password.app"
            "/System/Applications/System Settings.app"
         ];
@@ -67,10 +67,6 @@
     };
 
     activationScripts = {
-      preUserActivation.text = ''
-        sudo xcode-select --install
-      '';
-
       postUserActivation.text = ''
         # Set default browser to arc
         /opt/homebrew/bin/defaultbrowser browser
@@ -78,7 +74,7 @@
         # Set default Rust version
         rustup default stable
 
-        # Set not version
+        # Set node version
         sudo /opt/homebrew/bin/n 22
       '';
     };

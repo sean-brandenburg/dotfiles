@@ -17,6 +17,8 @@
     ];
 
     casks = [
+      "font-fira-code-nerd-font"
+      "google-drive"
       "1password"
       "beeper"
       "ghostty"
