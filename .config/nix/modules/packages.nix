@@ -31,6 +31,7 @@
     pkgs.zsh-fzf-tab
     pkgs.codecrafters-cli
     pkgs.pnpm
+    pkgs.gawk
 
     # Languages
     pkgs.go
