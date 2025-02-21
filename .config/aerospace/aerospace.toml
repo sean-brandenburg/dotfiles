@@ -177,6 +177,10 @@ run = "move-node-to-workspace O"
 if.app-id = 'com.spotify.client'
 run = "move-node-to-workspace S"
 
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = "move-node-to-workspace S"
+
 # Terminals
 [[on-window-detected]]
 if.app-id = 'dev.warp.Warp-Stable'
