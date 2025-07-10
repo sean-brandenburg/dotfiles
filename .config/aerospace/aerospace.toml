@@ -121,6 +121,7 @@ alt-e = 'workspace E' # [E]ditor
 alt-o = 'workspace O' # [O]bsidian
 alt-s = 'workspace S' # [S]potify
 alt-t = 'workspace T' # [T]erminal
+alt-c = 'workspace C' # [C]laude
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -137,6 +138,7 @@ alt-shift-e = ['move-node-to-workspace E', 'workspace E'] # [E]ditor
 alt-shift-o = ['move-node-to-workspace O', 'workspace O'] # [O]bsidian
 alt-shift-s = ['move-node-to-workspace S', 'workspace S'] # [S]potify
 alt-shift-t = ['move-node-to-workspace T', 'workspace T'] # [T]erminal
+alt-shift-c = ['move-node-to-workspace C', 'workspace C'] # [C]laude
 
 alt-shift-f = 'fullscreen'
 
@@ -169,7 +171,7 @@ alt-shift-l = ['join-with right', 'mode main']
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace B"
 
-# Opsidian
+# Obsidian
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace O"
@@ -192,7 +194,12 @@ run = "move-node-to-workspace T"
 if.app-id = 'com.mitchellh.ghostty'
 run = "move-node-to-workspace T"
 
+# Editor
 [[on-window-detected]]
 if.app-id = 'com.jetbrains.goland'
 run = "move-node-to-workspace E"
 
+# Claude
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = "move-node-to-workspace C"
