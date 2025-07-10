@@ -1,8 +1,9 @@
 { pkgs, ...}:
 {
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
+    primaryUser="sean";
     stateVersion = 5; # Check `darwin-rebuild changelog` before changing
 
     keyboard = {
@@ -67,15 +68,15 @@
     };
 
     activationScripts = {
-      postUserActivation.text = ''
+      userSetup.text = ''
         # Set default browser to arc
-        /opt/homebrew/bin/defaultbrowser browser
+        sudo -u sean /opt/homebrew/bin/defaultbrowser browser
 
         # Set default Rust version
-        rustup default stable
+        sudo -u sean rustup default stable
 
-        # Set node version
-        sudo /opt/homebrew/bin/n 22
+        # Set node version (uses sudo internally)
+        sudo -u sean /opt/homebrew/bin/n 22
       '';
     };
   };

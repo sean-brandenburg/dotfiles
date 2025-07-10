@@ -24,14 +24,12 @@
     pkgs.fd
     pkgs.fzf
     pkgs.imagemagick
-    pkgs.xclip
-    pkgs.wl-clipboard
-    pkgs.xsel
     pkgs.mongodb-ce
     pkgs.zsh-fzf-tab
     pkgs.codecrafters-cli
     pkgs.pnpm
     pkgs.gawk
+    pkgs.claude-code
 
     # Languages
     pkgs.go
