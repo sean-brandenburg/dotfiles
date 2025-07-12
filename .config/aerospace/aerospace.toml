@@ -171,6 +171,10 @@ alt-shift-l = ['join-with right', 'mode main']
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace B"
 
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = "move-node-to-workspace B"
+
 # Obsidian
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
@@ -197,6 +201,10 @@ run = "move-node-to-workspace T"
 # Editor
 [[on-window-detected]]
 if.app-id = 'com.jetbrains.goland'
+run = "move-node-to-workspace E"
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
 run = "move-node-to-workspace E"
 
 # Claude

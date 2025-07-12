@@ -24,6 +24,7 @@
       "ghostty"
       "scroll-reverser"
       "gpg-suite"
+      "imageoptim"
     ];
 
     # Mac App Store Apps
