@@ -23,9 +23,16 @@ return { -- Autoformat
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
+    formatters = {
+      ['golangci-lint'] = {
+        command = 'golangci-lint',
+        args = { 'run', '--fix', '--out-format=tab', '$FILENAME' },
+        stdin = false,
+      },
+    },
     formatters_by_ft = {
       lua = { 'stylua' },
-      go = { 'gopls', 'goimports-reviser' },
+      go = { 'golangci-lint' },
       javascript = { { 'prettierd', 'prettier' } },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },

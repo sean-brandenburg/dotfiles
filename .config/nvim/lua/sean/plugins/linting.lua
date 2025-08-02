@@ -34,15 +34,6 @@ return {
       end,
     })
 
-    -- Auto-fix golangci-lint issues on save for Go files
-    vim.api.nvim_create_autocmd('BufWritePost', {
-      group = lint_augroup,
-      pattern = '*.go',
-      callback = function()
-        local file_dir = vim.fn.expand('%:p:h')
-        vim.fn.system('golangci-lint run --fix ' .. vim.fn.shellescape(file_dir))
-      end,
-    })
 
     vim.keymap.set('n', '<leader>f', function()
       lint.try_lint()
