@@ -6,7 +6,7 @@ export PATH=$PATH:$HOME/dotnet
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="/usr/local/scripts:$PATH"
 export PATH=$GOPATH/bin:$PATH
-
+export PATH=$GOBIN:$PATH
 
 export DOTNET_ROOT=$HOME/dotnet
 
