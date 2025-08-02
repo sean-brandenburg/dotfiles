@@ -13,7 +13,11 @@
       "defaultbrowser"
       "mas"
       "mtools"
-      "go@1.22"
+      "libyaml" # For ruby on rails
+      "gmp" # For ruby on rails
+      "pkg-config" # For ruby on rails gem compilation
+      "go@1.24"
+      "sesh"
     ];
 
     casks = [

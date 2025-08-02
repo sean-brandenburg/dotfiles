@@ -25,6 +25,7 @@
     pkgs.fzf
     pkgs.imagemagick
     pkgs.mongodb-ce
+    pkgs.postgresql_16
     pkgs.zsh-fzf-tab
     pkgs.codecrafters-cli
     pkgs.pnpm
@@ -37,6 +38,10 @@
     pkgs.lua
     pkgs.python314
     pkgs.rustup
+
+    # Ruby + Rails setup
+    pkgs.ruby_3_4
+    pkgs.rubyPackages_3_4.rails
 
     # GUI
     pkgs.obsidian
