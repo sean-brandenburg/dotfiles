@@ -26,11 +26,15 @@ return { -- Autoformat
     formatters = {
       ['golangci-lint'] = {
         command = 'golangci-lint',
-        args = { 'run', '--fix' },
-        stdin = false,
-        cwd = function(self, ctx)
-          return vim.fs.dirname(vim.fs.find({'.golangci.yml', 'go.mod'}, { upward = true })[1])
+        args = function(self, ctx)
+          local config_file = vim.fs.find({'.golangci.yml'}, { upward = true, path = ctx.filename })[1]
+          if config_file then
+            return { 'run', '--fix', '--config', config_file, '$FILENAME' }
+          else
+            return { 'run', '--fix', '$FILENAME' }
+          end
         end,
+        stdin = false,
       },
     },
     formatters_by_ft = {
