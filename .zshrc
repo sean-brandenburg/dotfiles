@@ -22,12 +22,15 @@ ulimit -n 64000
 # Aliases 
 alias e="$EDITOR"
 alias vim="$EDITOR"
+alias t="tmux"
 alias npm="pnpm"
 alias ls="ls -al --color=auto"
 alias lg="lazygit"
 alias gr='cd $(git rev-parse --show-toplevel)'
 alias gu='git reset HEAD~1 --soft'
 alias finder="open"
+
+alias sall="source ~/.zshrc && source ~/.zshenv && source ~/.zshlocal"
 
 # pnpm
 export PNPM_HOME="/Users/sean/Library/pnpm"
@@ -37,6 +40,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+source ~/.zshenv
 source ~/.env
 source ~/.zshlocal
 source ~/.zshscripts
