@@ -26,8 +26,9 @@ return { -- Autoformat
     formatters = {
       ['golangci-lint'] = {
         command = 'golangci-lint',
-        args = { 'run', '--fix', '--out-format=tab', '$FILENAME' },
+        args = { 'run', '--fix' },
         stdin = false,
+        cwd = require('conform.util').root_file({ '.golangci.yml', 'go.mod' }),
       },
     },
     formatters_by_ft = {
