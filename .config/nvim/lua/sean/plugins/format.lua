@@ -28,7 +28,9 @@ return { -- Autoformat
         command = 'golangci-lint',
         args = { 'run', '--fix' },
         stdin = false,
-        cwd = require('conform.util').root_file({ '.golangci.yml', 'go.mod' }),
+        cwd = function(self, ctx)
+          return vim.fs.dirname(vim.fs.find({'.golangci.yml', 'go.mod'}, { upward = true })[1])
+        end,
       },
     },
     formatters_by_ft = {
