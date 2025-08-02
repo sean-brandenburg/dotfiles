@@ -133,6 +133,15 @@ return {
           },
         }
       end,
+      ['ruby_lsp'] = function()
+        -- configure ruby lsp server
+        lspconfig['ruby_lsp'].setup {
+          capabilities = capabilities,
+          init_options = {
+            formatter = 'rubocop',
+          },
+        }
+      end,
     }
   end,
 }

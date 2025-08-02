@@ -32,6 +32,7 @@ return {
         'svelte',
         'lua_ls',
         'pyright',
+        'ruby_lsp',
       },
     }
 
@@ -48,6 +49,7 @@ return {
         'golangci-lint',
         'pylint',
         'eslint_d',
+        'rubocop',
       },
     }
   end,
