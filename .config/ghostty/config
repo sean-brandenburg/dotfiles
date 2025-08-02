@@ -54,3 +54,5 @@ keybind = cmd+f=write_scrollback_file:open
 keybind = cmd+shift+f=write_selection_file:open
 scrollback-limit = 20000000
 
+confirm-close-surface = false
+quit-after-last-window-closed=true
