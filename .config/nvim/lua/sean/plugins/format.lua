@@ -12,7 +12,7 @@ return { -- Autoformat
     },
   },
   opts = {
-    notify_on_error = false,
+    notify_on_error = true,
     format_on_save = function(bufnr)
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
@@ -26,13 +26,13 @@ return { -- Autoformat
     formatters = {
       ['golangci-lint'] = {
         command = 'golangci-lint',
-        args = function(self, ctx)
-          local config_file = vim.fs.find({'.golangci.yml'}, { upward = true, path = ctx.filename })[1]
-          if config_file then
-            return { 'run', '--fix', '--config', config_file, '$FILENAME' }
-          else
-            return { 'run', '--fix', '$FILENAME' }
+        args = { 'run', '--fix' },
+        cwd = function(self, ctx)
+          local go_mod = vim.fs.find({ 'go.mod' }, { upward = true, path = ctx.filename })[1]
+          if go_mod then
+            return vim.fs.dirname(go_mod)
           end
+          return nil
         end,
         stdin = false,
       },
