@@ -5,13 +5,18 @@ return { -- Autoformat
     {
       '<leader>f',
       function()
-        -- For Go files, run golangci-lint --fix from project root
+        -- For Go files, run golangci-lint --fix from project root (in background)
         if vim.bo.filetype == 'go' then
           local config_dir = vim.fs.find({ '.golangci.yml', '.golangci.yaml' }, { upward = true, path = vim.api.nvim_buf_get_name(0) })[1]
           if config_dir then
             local project_root = vim.fs.dirname(config_dir)
-            vim.fn.system('cd ' .. vim.fn.shellescape(project_root) .. ' && golangci-lint run --fix')
-            vim.cmd('edit!') -- Reload the buffer to show changes
+            vim.fn.jobstart('cd ' .. vim.fn.shellescape(project_root) .. ' && golangci-lint run --fix', {
+              on_exit = function()
+                vim.schedule(function()
+                  vim.cmd('edit!') -- Reload the buffer to show changes
+                end)
+              end,
+            })
           else
             require('conform').format { async = true, lsp_fallback = true }
           end
@@ -45,7 +50,7 @@ return { -- Autoformat
   config = function(_, opts)
     require('conform').setup(opts)
     
-    -- Add autocmd for golangci-lint on Go file save
+    -- Add autocmd for golangci-lint on Go file save (runs in background)
     vim.api.nvim_create_autocmd('BufWritePost', {
       pattern = '*.go',
       callback = function(args)
@@ -53,8 +58,13 @@ return { -- Autoformat
         local config_dir = vim.fs.find({ '.golangci.yml', '.golangci.yaml' }, { upward = true, path = full_path })[1]
         if config_dir then
           local project_root = vim.fs.dirname(config_dir)
-          vim.fn.system('cd ' .. vim.fn.shellescape(project_root) .. ' && golangci-lint run --fix')
-          vim.cmd('checktime')
+          vim.fn.jobstart('cd ' .. vim.fn.shellescape(project_root) .. ' && golangci-lint run --fix', {
+            on_exit = function()
+              vim.schedule(function()
+                vim.cmd('checktime')
+              end)
+            end,
+          })
         end
       end,
     })
