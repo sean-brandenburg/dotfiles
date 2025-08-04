@@ -18,6 +18,7 @@
       "gmp" # Ruby
       "pkg-config" # Ruby
       "go@1.24"
+      "golangci-lint"
     ];
 
     casks = [

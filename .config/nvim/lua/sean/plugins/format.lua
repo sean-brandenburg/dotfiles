@@ -5,7 +5,19 @@ return { -- Autoformat
     {
       '<leader>f',
       function()
-        require('conform').format { async = true, lsp_fallback = true }
+        -- For Go files, run golangci-lint --fix from project root
+        if vim.bo.filetype == 'go' then
+          local config_dir = vim.fs.find({ '.golangci.yml', '.golangci.yaml' }, { upward = true, path = vim.api.nvim_buf_get_name(0) })[1]
+          if config_dir then
+            local project_root = vim.fs.dirname(config_dir)
+            vim.fn.system('cd ' .. vim.fn.shellescape(project_root) .. ' && golangci-lint run --fix')
+            vim.cmd('edit!') -- Reload the buffer to show changes
+          else
+            require('conform').format { async = true, lsp_fallback = true }
+          end
+        else
+          require('conform').format { async = true, lsp_fallback = true }
+        end
       end,
       mode = '',
       desc = '[F]ormat buffer',
@@ -17,32 +29,34 @@ return { -- Autoformat
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
+      local disable_filetypes = { c = true, cpp = true, go = true }
       return {
         timeout_ms = 500,
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
-    formatters = {
-      ['golangci-lint'] = {
-        command = 'golangci-lint',
-        args = { 'run', '--fix' },
-        cwd = function(self, ctx)
-          local go_mod = vim.fs.find({ 'go.mod' }, { upward = true, path = ctx.filename })[1]
-          if go_mod then
-            return vim.fs.dirname(go_mod)
-          end
-          return nil
-        end,
-        stdin = false,
-      },
-    },
     formatters_by_ft = {
       lua = { 'stylua' },
-      go = { 'golangci-lint' },
-      javascript = { { 'prettierd', 'prettier' } },
+      javascript = { 'prettierd', 'prettier', stop_after_first = true },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
     },
   },
+  config = function(_, opts)
+    require('conform').setup(opts)
+    
+    -- Add autocmd for golangci-lint on Go file save
+    vim.api.nvim_create_autocmd('BufWritePost', {
+      pattern = '*.go',
+      callback = function(args)
+        local full_path = vim.fn.expand(args.match)
+        local config_dir = vim.fs.find({ '.golangci.yml', '.golangci.yaml' }, { upward = true, path = full_path })[1]
+        if config_dir then
+          local project_root = vim.fs.dirname(config_dir)
+          vim.fn.system('cd ' .. vim.fn.shellescape(project_root) .. ' && golangci-lint run --fix')
+          vim.cmd('checktime')
+        end
+      end,
+    })
+  end,
 }

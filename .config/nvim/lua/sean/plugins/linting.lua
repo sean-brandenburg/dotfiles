@@ -4,13 +4,12 @@ return {
   config = function()
     local lint = require 'lint'
 
-    -- Configure golangci-lint to use .golangci.yml if present
+    -- Configure golangci-lint to use .golangci.yml from project root
     lint.linters.golangcilint.args = {
       'run',
       '--out-format=json',
-      '--path-prefix',
       function()
-        return vim.fn.getcwd()
+        return vim.api.nvim_buf_get_name(0)
       end,
     }
 
@@ -33,10 +32,5 @@ return {
         lint.try_lint()
       end,
     })
-
-
-    vim.keymap.set('n', '<leader>f', function()
-      lint.try_lint()
-    end, { desc = 'Trigger linting for current file' })
   end,
 }
