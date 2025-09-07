@@ -31,6 +31,7 @@
     pkgs.pnpm
     pkgs.gawk
     pkgs.claude-code
+    pkgs.gum
 
     # Languages
     pkgs.go
