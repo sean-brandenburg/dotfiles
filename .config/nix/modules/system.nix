@@ -30,16 +30,16 @@
         wvous-br-corner = 1; # disable bottom right hot corner
         tilesize = 48; # smaller dock size
 
+        persistent-others = []; # Remove downloads folder from dock
         persistent-apps = [
+           "/Applications/1Password.app"
            "${pkgs.arc-browser}/Applications/Arc.app"
+           "/Applications/Todoist.app"
            "/Applications/Beeper.app"
+           "${pkgs.obsidian}/Applications/Obsidian.app"
+           "/Applications/Ghostty.app"
            "/System/Applications/Messages.app"
            "${pkgs.spotify}/Applications/Spotify.app"
-           "/Applications/Ghostty.app"
-           "${pkgs.obsidian}/Applications/Obsidian.app"
-           "/Applications/Todoist.app"
-           "/Applications/1Password.app"
-           "/System/Applications/System Settings.app"
         ];
       };
 

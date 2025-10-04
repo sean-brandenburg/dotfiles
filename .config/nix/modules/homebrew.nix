@@ -14,6 +14,7 @@
       "mas"
       "mtools"
       "sesh"
+      "nmap"
       "libyaml" # Ruby
       "gmp" # Ruby
       "pkg-config" # Ruby
@@ -30,6 +31,7 @@
       "scroll-reverser"
       "gpg-suite"
       "imageoptim"
+      "anki"
     ];
 
     # Mac App Store Apps
