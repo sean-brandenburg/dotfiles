@@ -55,3 +55,6 @@ source ~/.zshenv
 source ~/.env
 source ~/.zshlocal
 source ~/.zshscripts
+
+# Added by Antigravity
+export PATH="/Users/sean/.antigravity/antigravity/bin:$PATH"

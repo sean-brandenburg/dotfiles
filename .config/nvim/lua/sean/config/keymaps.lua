@@ -38,3 +38,6 @@ keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = '[T]ab [P]rev' })
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
 keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- toggle claude code
+keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })

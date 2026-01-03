@@ -8,7 +8,7 @@ mouse-hide-while-typing = true
 # mouse-scroll-multiplier = 1
 
 # Theme
-theme = tokyonight
+theme = TokyoNight
 cursor-invert-fg-bg = true
 background-opacity = 0.85
 background-blur-radius = 20

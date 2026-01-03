@@ -34,6 +34,7 @@
         persistent-apps = [
            "/Applications/1Password.app"
            "${pkgs.arc-browser}/Applications/Arc.app"
+           "/Applications/Claude.app"
            "/Applications/Todoist.app"
            "/Applications/Beeper.app"
            "${pkgs.obsidian}/Applications/Obsidian.app"

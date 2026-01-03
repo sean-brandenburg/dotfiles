@@ -32,6 +32,8 @@
       "gpg-suite"
       "imageoptim"
       "anki"
+      "claude"
+      "docker"
     ];
 
     # Mac App Store Apps

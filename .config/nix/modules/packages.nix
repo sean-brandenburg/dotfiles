@@ -46,6 +46,7 @@
 
     # GUI
     pkgs.obsidian
+    pkgs.discord
     pkgs.spotify
     pkgs.aerospace
     pkgs.raycast
