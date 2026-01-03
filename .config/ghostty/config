@@ -37,6 +37,7 @@ keybind = super+shift+enter=new_split:auto
 keybind = super+w=close_surface
 
 # Window
+gtk-titlebar = false
 gtk-single-instance = true
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
