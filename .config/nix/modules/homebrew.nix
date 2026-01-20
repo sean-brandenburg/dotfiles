@@ -34,6 +34,10 @@
       "anki"
       "claude"
       "docker"
+      "logi-options+"
+      "arc"
+      "google-chrome"
+      "protonvpn"
     ];
 
     # Mac App Store Apps

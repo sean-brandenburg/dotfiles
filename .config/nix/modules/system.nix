@@ -33,7 +33,7 @@
         persistent-others = []; # Remove downloads folder from dock
         persistent-apps = [
            "/Applications/1Password.app"
-           "${pkgs.arc-browser}/Applications/Arc.app"
+           "/Applications/Arc.app"
            "/Applications/Claude.app"
            "/Applications/Todoist.app"
            "/Applications/Beeper.app"

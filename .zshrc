@@ -12,6 +12,7 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="/usr/local/scripts:$PATH"
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GOBIN:$PATH
+export PATH=$(go env GOPATH)/bin:$PATH
 
 export DOTNET_ROOT=$HOME/dotnet
 
@@ -55,6 +56,3 @@ source ~/.zshenv
 source ~/.env
 source ~/.zshlocal
 source ~/.zshscripts
-
-# Added by Antigravity
-export PATH="/Users/sean/.antigravity/antigravity/bin:$PATH"
