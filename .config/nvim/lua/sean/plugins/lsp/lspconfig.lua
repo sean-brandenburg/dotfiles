@@ -7,6 +7,17 @@ return {
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
+    -- Neovim 0.11 requires position_encoding; shim for plugins that don't pass it yet
+    local _make_position_params = vim.lsp.util.make_position_params
+    vim.lsp.util.make_position_params = function(window, encoding)
+      if encoding == nil then
+        local buf = vim.api.nvim_win_get_buf(window or 0)
+        local clients = vim.lsp.get_clients { bufnr = buf }
+        encoding = clients[1] and clients[1].offset_encoding or 'utf-16'
+      end
+      return _make_position_params(window, encoding)
+    end
+
     -- import lspconfig plugin
     local lspconfig = require 'lspconfig'
 
@@ -78,7 +89,8 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
     end
 
-    mason_lspconfig.setup_handlers {
+    mason_lspconfig.setup {
+      handlers = {
       -- default handler for installed servers
       function(server_name)
         lspconfig[server_name].setup {
@@ -142,6 +154,7 @@ return {
           },
         }
       end,
+      },
     }
   end,
 }

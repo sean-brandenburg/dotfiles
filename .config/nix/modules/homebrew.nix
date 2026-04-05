@@ -33,11 +33,14 @@
       "imageoptim"
       "anki"
       "claude"
+      "claude-code"
       "docker"
       "logi-options+"
-      "arc"
       "google-chrome"
       "protonvpn"
+      "nextcloud"
+      "mactex"
+      "emdash"
     ];
 
     # Mac App Store Apps
@@ -52,6 +55,8 @@
       "toothfairy" = 1191449274;
       "final-cut-pro" = 424389933;
       "logic-pro" = 634148309;
+      "tailscale" = 1475387142;
+      "amphetamine" = 937984704;
     };
     onActivation = {
       upgrade = true;

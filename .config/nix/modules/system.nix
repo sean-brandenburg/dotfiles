@@ -33,7 +33,7 @@
         persistent-others = []; # Remove downloads folder from dock
         persistent-apps = [
            "/Applications/1Password.app"
-           "/Applications/Arc.app"
+           "/Applications/Google Chrome.app"
            "/Applications/Claude.app"
            "/Applications/Todoist.app"
            "/Applications/Beeper.app"
@@ -65,13 +65,12 @@
         BatteryShowPercentage = false;
         Bluetooth = true;
       };
-
     };
 
     activationScripts = {
       userSetup.text = ''
         # Set default browser to arc
-        sudo -u sean /opt/homebrew/bin/defaultbrowser browser
+        sudo -u sean /opt/homebrew/bin/defaultbrowser chrome
 
         # Set default Rust version
         sudo -u sean rustup default stable

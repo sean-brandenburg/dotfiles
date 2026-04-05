@@ -15,6 +15,7 @@ return {
     'saadparwaiz1/cmp_luasnip', -- for autocompletion
     'rafamadriz/friendly-snippets', -- useful snippets
     'onsails/lspkind.nvim', -- vs-code like pictograms
+    'roobert/tailwindcss-colorizer-cmp.nvim', -- tailwind color swatches in completion
   },
   config = function()
     local cmp = require 'cmp'
@@ -22,6 +23,8 @@ return {
     local luasnip = require 'luasnip'
 
     local lspkind = require 'lspkind'
+
+    require('tailwindcss-colorizer-cmp').setup { color_square_width = 2 }
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require('luasnip.loaders.from_vscode').lazy_load()
@@ -61,6 +64,7 @@ return {
         format = lspkind.cmp_format {
           maxwidth = 50,
           ellipsis_char = '...',
+          before = require('tailwindcss-colorizer-cmp').formatter,
         },
       },
     }

@@ -25,7 +25,7 @@ return {
       ensure_installed = {
         'gopls',
         'jdtls',
-        -- 'tsserver', -- Can't find this for some reason?
+        'ts_ls',
         'html',
         'cssls',
         'tailwindcss',
