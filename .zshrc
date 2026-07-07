@@ -33,6 +33,8 @@ alias gr='cd $(git rev-parse --show-toplevel)'
 alias gu='git reset HEAD~1 --soft'
 alias finder="open"
 alias sall="source ~/.zshrc && source ~/.zshenv && source ~/.zshlocal"
+alias cc="claude"
+alias cr="claude --resume"
 
 # To allow for rails to source the cpp headers it needs
 alias bundle='CPPFLAGS="-I/opt/homebrew/include" LDFLAGS="-L/opt/homebrew/lib" PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig" bundle'
