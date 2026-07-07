@@ -20,6 +20,12 @@
       "pkg-config" # Ruby
       "go@1.24"
       "golangci-lint"
+      "mongosh"
+      "ollama"
+      "whisper-cpp"
+      "ffmpeg"
+      "python@3.12"
+      "sox"
     ];
 
     casks = [
@@ -40,16 +46,17 @@
       "protonvpn"
       "nextcloud"
       "mactex"
-      "emdash"
+      "mongodb-compass"
+      "spotify"
+      "affinity-photo"
+      "affinity-designer"
+      "affinity-publisher"
     ];
 
     # Mac App Store Apps
     masApps = {
       "todoist" = 585829637;
       "kindle" = 302584613;
-      "affnity-photo" = 1616822987;
-      "affnity-designer" = 1616831348;
-      "affnity-publisher" = 1606941598;
       "paprika" = 1303222628;
       "klack" = 6446206067;
       "toothfairy" = 1191449274;

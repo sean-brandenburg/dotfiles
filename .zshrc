@@ -5,6 +5,7 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:$HOME/dotnet
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="/usr/local/scripts:$PATH"
+export PATH="/Library/TeX/texbin:$PATH"
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GOBIN:$PATH
 export PATH=$(go env GOPATH)/bin:$PATH

@@ -30,8 +30,8 @@
     pkgs.codecrafters-cli
     pkgs.pnpm
     pkgs.gawk
-    pkgs.claude-code
     pkgs.gum
+    pkgs.opencode
 
     # Languages
     pkgs.go
@@ -47,7 +47,6 @@
     # GUI
     pkgs.obsidian
     pkgs.discord
-    pkgs.spotify
     pkgs.aerospace
     pkgs.raycast
     pkgs.appcleaner

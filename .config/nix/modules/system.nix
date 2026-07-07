@@ -40,7 +40,7 @@
            "${pkgs.obsidian}/Applications/Obsidian.app"
            "/Applications/Ghostty.app"
            "/System/Applications/Messages.app"
-           "${pkgs.spotify}/Applications/Spotify.app"
+           "/Applications/Spotify.app"
         ];
       };
 
