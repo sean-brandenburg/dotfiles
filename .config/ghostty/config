@@ -50,6 +50,10 @@ copy-on-select = clipboard
 shell-integration-features = cursor,sudo
 macos-titlebar-style = hidden
 
+# Command-finish notification: default is an audible bell with no system
+# notification. Swap to a silent macOS notification instead.
+notify-on-command-finish-action = notify,no-bell
+
 scrollback-limit = 20000000
 
 confirm-close-surface = false

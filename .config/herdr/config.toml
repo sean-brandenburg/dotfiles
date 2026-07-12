@@ -1,0 +1,59 @@
+# herdr configuration — ported from ~/.config/tmux/tmux.conf.
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[theme.custom]
+accent = "#89b4fa"
+green = "#a6e3a1"
+panel_bg = "reset"  # match ghostty's transparent background
+
+[terminal]
+new_cwd = "follow"
+
+[keys]
+prefix = "ctrl+space"
+reload_config = "prefix+r"
+
+split_vertical = "prefix+v"
+split_horizontal = "prefix+s"
+close_pane = "prefix+x"
+
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+resize_mode = "prefix+alt+r"
+
+next_agent = "prefix+]"
+previous_agent = "prefix+["
+
+workspace_picker = ""  # unused
+
+[ui]
+mouse_capture = true
+pane_borders = true
+pane_gaps = true
+accent = "cyan"
+
+[ui.toast]
+# In-app toast, not a system notification — unaffected by Do Not Disturb.
+delivery = "herdr"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "bottom-right"
+
+[ui.sound]
+enabled = false  # rely on ui.toast instead of the agent-done sound
+
+[session]
+resume_agents_on_restore = true
+
+[experimental]
+pane_history = true
+
+[advanced]
+scrollback_limit_bytes = 10485760

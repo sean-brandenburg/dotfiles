@@ -26,6 +26,7 @@
       "ffmpeg"
       "python@3.12"
       "sox"
+      "herdr"
     ];
 
     casks = [
