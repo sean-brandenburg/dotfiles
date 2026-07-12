@@ -25,7 +25,7 @@ ulimit -n 64000
 # Aliases 
 alias e="$EDITOR"
 alias vim="$EDITOR"
-alias t="tmux"
+alias t="herdr"
 alias npm="pnpm"
 alias ls="ls -al --color=auto"
 alias lg="lazygit"
