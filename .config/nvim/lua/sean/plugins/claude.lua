@@ -1,21 +1,24 @@
 return {
-  'greggh/claude-code.nvim',
+  'coder/claudecode.nvim',
   dependencies = {
-    'nvim-lua/plenary.nvim', -- Required for git operations
+    'folke/snacks.nvim', -- optional: nicer terminal + picker integration
   },
-  config = function()
-    require('claude-code').setup {
-      window = {
-        position = 'float',
-        float = {
-          width = '90%', -- Take up 90% of the editor width
-          height = '90%', -- Take up 90% of the editor height
-          row = 'center', -- Center vertically
-          col = 'center', -- Center horizontally
-          relative = 'editor',
-          border = 'double', -- Use double border style
-        },
+  opts = {
+    terminal = {
+      -- Position of the Claude window. Change `position` to "top", "bottom",
+      -- "left", "right", or "float".
+      snacks_win_opts = {
+        position = 'bottom',
+        height = 0.4,
+        width = 1.0,
+        border = 'single',
       },
-    }
-  end,
+    },
+  },
+  keys = {
+    { '<leader>cc', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude Code' },
+    -- Diff management
+    { '<leader>cy', '<cmd>ClaudeCodeDiffAccept<cr>', desc = 'Accept (yes) Claude diff' },
+    { '<leader>cn', '<cmd>ClaudeCodeDiffDeny<cr>', desc = 'Deny (no) Claude diff' },
+  },
 }
